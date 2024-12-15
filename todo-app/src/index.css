@@ -1,0 +1,223 @@
+/* Define CSS Variables */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #0f57c9;
+  --background-color: #c6d0e1;
+  --text-color: #333;
+  --completed-text-color: #bbb;
+  --font-family: 'Arial Rounded MT Bold', sans-serif;
+  --font-size: 16px;
+  --border-radius: 8px;
+  --padding: 10px;
+  --transition-time: 0.3s;
+}
+
+/* Universal Styles */
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.backendcheck{
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+  align-items:center;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-time);
+}
+.backendlinks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Task List Styles */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto; 
+  gap: 15px;
+  width: 75%;
+}
+
+.task-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-time);
+}
+.task-item.completed {
+  background-color: #ecf0f1;
+  text-decoration: line-through;
+  color: var(--completed-text-color);
+}
+
+/* Task Title and Description */
+.task-title {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.task-description {
+  font-size: 14px;
+  color: var(--text-color);
+  max-width: 300px;
+  word-wrap: break-word;
+}
+
+/* Task Action Buttons */
+.task-actions {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  font-family: var(--font-family);
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color var(--transition-time);
+}
+button.edit {
+  margin-right: 20px; 
+}
+button.delete {
+  margin-left: 20px; 
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+/* Form Container Styles */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styles */
+label {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+/* Input Field Styles */
+input[type="text"],
+textarea {
+  font-size: var(--font-size);
+  padding: var(--padding);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  transition: border-color var(--transition-time);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Textarea Styles */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Checkbox Styles */
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-time);
+}
+
+button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+button[type="submit"]:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .task-list {
+    margin: 10px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-title {
+    font-size: 16px;
+  }
+
+  .task-description {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 6px 10px;
+  }
+}
